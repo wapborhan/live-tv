@@ -1,9 +1,10 @@
+"use client";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Player from "../components/Player";
 
-const StreamPage = () => {
-  const { id } = useParams();
+const StreamPage = ({ id }) => {
+  // const { id } = useParams();
   const [streamLink, setStreamLink] = useState([]);
 
   useEffect(() => {

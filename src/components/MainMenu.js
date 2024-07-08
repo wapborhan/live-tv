@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 const MainMenu = () => {
@@ -19,37 +21,34 @@ const MainMenu = () => {
     <nav className="main-menu">
       <div>
         <div className="user-info">
-          <img
-            src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/37e5ccfa-f9ee-458b-afa2-dcd85b495e4e"
-            alt="user"
-          />
-          <p>Jane Wilson</p>
+          <Image src="/logo.avif" alt="user" width={100} height={100} />
+          <p>Live TV</p>
         </div>
         <ul>
           <li className="nav-item active">
-            <a href="#">
-              <i className="fa fa-map nav-icon"></i>
-              <span className="nav-text">Discover</span>
-            </a>
+            <Link href="/">
+              <i className="fa fa-home nav-icon"></i>
+              <span className="nav-text">Home</span>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#">
+            <Link href="/channel">
               <i className="fa fa-arrow-trend-up nav-icon"></i>
-              <span className="nav-text">Trending</span>
-            </a>
+              <span className="nav-text">Channel</span>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#">
+            <Link href="/music">
               <i className="fa fa-compact-disc nav-icon"></i>
-              <span className="nav-text">Album</span>
-            </a>
+              <span className="nav-text">Music</span>
+            </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a href="#">
               <i className="fa fa-circle-play nav-icon"></i>
               <span className="nav-text">Playlist</span>
             </a>
-          </li>
+          </li> */}
           <li className="nav-item">
             <a href="#">
               <i className="fa fa-heart nav-icon"></i>

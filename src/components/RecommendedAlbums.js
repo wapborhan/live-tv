@@ -14,14 +14,14 @@ const RecommendedAlbums = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setChannel(data);
       });
   }, []);
 
   return (
     <div className="albums">
-      <h1>Recommended Albums</h1>
+      <h1>Channels</h1>
       <div className="album-container containers">
         {channel.length > 0 ? (
           channel.slice(0, 50).map((album) => (
@@ -32,7 +32,7 @@ const RecommendedAlbums = () => {
                     height={100}
                     width={100}
                     src={album.logo}
-                    alt={album.title}
+                    alt={album.name}
                   />
                 </div>
                 <div className="!no-underline">

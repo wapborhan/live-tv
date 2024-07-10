@@ -16,10 +16,14 @@ const StreamPage = ({ id }) => {
   }, []);
 
   const link = streamLink.find((item) => item.channel === id);
-
   return (
     <div>
-      {streamLink ? (
+      <div className="channel">
+        <h1 className="text-4xl pb-5">
+          Channel: <sapn className=" font-bold ">{link?.channel}</sapn>{" "}
+        </h1>
+      </div>
+      {link ? (
         <>
           <Player streamUrl={link?.url} />
         </>

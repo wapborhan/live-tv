@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 
 const songs = [
@@ -29,6 +30,8 @@ const songs = [
 ];
 
 const MusicPlayer = () => {
+  const pathname = usePathname();
+
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -108,6 +111,8 @@ const MusicPlayer = () => {
     }
   }, [currentSongIndex]);
 
+  // console.log(pathname);
+
   return (
     <div className="music-player">
       <div className="album-cover">
@@ -120,7 +125,7 @@ const MusicPlayer = () => {
       </div>
 
       <h2>{songs[currentSongIndex].title}</h2>
-      <p>{songs[currentSongIndex].name}</p>
+      {/* <p>{songs[currentSongIndex].name}</p> */}
 
       <audio ref={audioRef}>
         <source src={songs[currentSongIndex].source} type="audio/mpeg" />

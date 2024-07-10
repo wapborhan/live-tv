@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <main>
+        <main className="h-[90vh]">
           <MainMenu />
           <ScrollableContainers />
           <section className="content">

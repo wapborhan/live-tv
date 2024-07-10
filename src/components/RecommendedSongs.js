@@ -23,8 +23,8 @@ const songs = [
 
 const RecommendedSongs = () => {
   return (
-    <div className="recommended-songs">
-      <h1>Recommended Songs</h1>
+    <div className="recommended-songs mt-5">
+      <h1>Users</h1>
       <div className="song-container">
         {songs.map((song, index) => (
           <div className="song" key={index}>

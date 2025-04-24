@@ -8,7 +8,7 @@ const AllChannel = () => {
   const [channel, setChannel] = useState([]);
 
   useEffect(() => {
-    fetch("/channels.json")
+    fetch("/channel2.json")
       .then((res) => {
         return res.json();
       })
@@ -16,8 +16,9 @@ const AllChannel = () => {
         setChannel(data);
       });
   }, []);
-  const bdCHannel = channel.filter((item) => item.country === "BD");
 
+  const bdCHannel = channel.filter((item) => item.country === "BD");
+  console.log(bdCHannel);
   return (
     <div className="albumss">
       <h1>Recommended Albums</h1>

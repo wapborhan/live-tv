@@ -1,0 +1,21 @@
+[
+  {
+    "id": "BoishakhiTV.bd",
+    "name": "Boishakhi TV",
+    "alt_names": [],
+    "network": null,
+    "owners": [],
+    "country": "BD",
+    "subdivision": null,
+    "city": null,
+    "broadcast_area": ["c/BD"],
+    "languages": ["ben"],
+    "categories": ["general"],
+    "is_nsfw": false,
+    "launched": null,
+    "closed": null,
+    "replaced_by": null,
+    "website": "http://boishakhionline.com/",
+    "logo": "https://i.imgur.com/gxL05Y4.png"
+  }
+]

@@ -6,7 +6,7 @@ const StreamPage = ({ id }) => {
   const [streamLink, setStreamLink] = useState([]);
 
   useEffect(() => {
-    fetch("https://iptv-org.github.io/api/streams.json")
+    fetch("/streams.json")
       .then((res) => {
         return res.json();
       })

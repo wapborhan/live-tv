@@ -1,6 +1,7 @@
 {
   "name": "livetv",
   "version": "0.1.0",
+  "homepage": "https://code.wapborhan.com/live-tv/",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -20,7 +20,7 @@ export default function Toast({ message, key: k }: Props) {
 
   return (
     <div
-      className={`fixed bottom-5 left-1/2 -translate-x-1/2 z-[100] px-4 py-2 rounded-lg bg-[#1e2230] border border-[#4f7ef8] text-xs text-[#e8eaf2] shadow-lg pointer-events-none transition-all duration-300 whitespace-nowrap ${
+      className={`fixed bottom-5 left-1/2 -translate-x-1/2 z-100 px-4 py-2 rounded-lg bg-[#1e2230] border border-[#4f7ef8] text-xs text-[#e8eaf2] shadow-lg pointer-events-none transition-all duration-300 whitespace-nowrap ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
       }`}
     >

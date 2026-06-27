@@ -52,7 +52,7 @@ export default function ChannelList({
   return (
     <div className="flex flex-col h-full overflow-hidden border-l border-[#2a3050] bg-[#0d0f14]">
       {/* Tabs */}
-      <div className="flex border-b border-[#2a3050] flex-shrink-0">
+      <div className="flex border-b border-[#2a3050] shrink-0">
         {(["all", "favourites"] as Tab[]).map((t) => (
           <button
             key={t}
@@ -175,14 +175,14 @@ function ChannelItem({
         <img
           src={channel.logo}
           alt=""
-          className="w-8 h-8 rounded-md object-contain bg-[#252a3a] flex-shrink-0"
+          className="w-8 h-8 rounded-md object-contain bg-[#252a3a] shrink-0"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
           loading="lazy"
         />
       ) : (
-        <div className="w-8 h-8 rounded-md bg-[#252a3a] flex items-center justify-center text-[11px] font-bold text-[#7a83a0] flex-shrink-0">
+        <div className="w-8 h-8 rounded-md bg-[#252a3a] flex items-center justify-center text-[11px] font-bold text-[#7a83a0] shrink-0">
           {initials}
         </div>
       )}
@@ -203,7 +203,7 @@ function ChannelItem({
           e.stopPropagation();
           onToggleFav();
         }}
-        className={`text-base flex-shrink-0 transition-colors ${
+        className={`text-base shrink-0 transition-colors ${
           isFav ? "text-yellow-400" : "text-[#7a83a0] hover:text-yellow-400"
         }`}
         title={isFav ? "Remove from favourites" : "Add to favourites"}

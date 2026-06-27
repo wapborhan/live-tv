@@ -169,7 +169,7 @@ export default function VideoPlayer({
               <line x1="12" y1="17" x2="12" y2="21" />
             </svg>
             <p className="text-sm">No channel selected</p>
-            <p className="text-xs opacity-60 max-w-[220px] text-center leading-relaxed">
+            <p className="text-xs opacity-60 max-w-55 text-center leading-relaxed">
               Pick a channel from the list on the right to start watching
             </p>
           </div>
@@ -268,95 +268,97 @@ export default function VideoPlayer({
       </div>
 
       {/* Now playing bar */}
-      <div className="flex-shrink-0 px-1">
-        <div className="text-sm font-semibold truncate text-[#e8eaf2] uppercase">
-          {channel ? channel.name : "—"}
+      <div className="flex items-center gap-2 shrink-0 flex-wrap">
+        <div className="shrink-0 px-1">
+          <div className="text-sm font-semibold truncate text-[#e8eaf2] uppercase">
+            {channel ? channel.name : "—"}
+          </div>
+          <div className="text-xs text-[#7a83a0] mt-0.5">
+            {channel ? channel.group : "Select a channel to begin"}
+          </div>
         </div>
-        <div className="text-xs text-[#7a83a0] mt-0.5">
-          {channel ? channel.group : "Select a channel to begin"}
-        </div>
-      </div>
 
-      {/* Controls bar */}
-      <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
-        <button
-          onClick={onPrev}
-          disabled={!hasPrev}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-        >
-          ⏮ Prev
-        </button>
-        <button
-          onClick={onNext}
-          disabled={!hasNext}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-        >
-          Next ⏭
-        </button>
-        {state === "error" && (
+        {/* Controls bar */}
+        <div className="flex items-center gap-2 shrink-0 flex-wrap">
           <button
-            onClick={handleRefresh}
+            onClick={onPrev}
+            disabled={!hasPrev}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            ⏮ Prev
+          </button>
+          <button
+            onClick={onNext}
+            disabled={!hasNext}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            Next ⏭
+          </button>
+          {state === "error" && (
+            <button
+              onClick={handleRefresh}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
+            >
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <polyline points="23 4 23 10 17 10" />
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+              </svg>
+              Refresh
+            </button>
+          )}
+          <button
+            onClick={handleFullscreen}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
           >
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <polyline points="23 4 23 10 17 10" />
-              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-            </svg>
-            Refresh
+            {isFullscreen ? (
+              <>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+                </svg>
+                Normal Screen
+              </>
+            ) : (
+              <>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                </svg>
+                Fullscreen
+              </>
+            )}
           </button>
-        )}
-        <button
-          onClick={handleFullscreen}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1e2230] border border-[#2a3050] text-xs text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
-        >
-          {isFullscreen ? (
-            <>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
-              </svg>
-              Normal Screen
-            </>
-          ) : (
-            <>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
-              </svg>
-              Fullscreen
-            </>
-          )}
-        </button>
-        <div className="flex items-center gap-2 ml-auto">
-          <span className="text-xs">{volIcon}</span>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.02"
-            value={volume}
-            onChange={handleVolume}
-            className="w-20"
-          />
+          <div className="flex items-center gap-2 ml-auto">
+            <span className="text-xs">{volIcon}</span>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.02"
+              value={volume}
+              onChange={handleVolume}
+              className="w-20"
+            />
+          </div>
         </div>
       </div>
     </div>

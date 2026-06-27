@@ -136,9 +136,9 @@ export default function ChannelList({
       </div>
 
       {/* Status */}
-      <div className="shrink-0 text-center text-[10px] text-[#7a83a0] py-1.5 border-t border-[#2a3050]">
+      {/* <div className="shrink-0 text-center text-[10px] text-[#7a83a0] py-1.5 border-t border-[#2a3050]">
         {filtered.length} channel{filtered.length !== 1 ? "s" : ""}
-      </div>
+      </div> */}
     </div>
   );
 }

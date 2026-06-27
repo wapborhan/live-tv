@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Channel } from "@/types/channel";
+import Link from "next/link";
 
 interface Props {
   channel: Channel | null;
@@ -140,7 +141,7 @@ export default function VideoPlayer({
   const volIcon = volume === 0 ? "🔇" : volume < 0.5 ? "🔉" : "🔊";
 
   return (
-    <div className="flex flex-col h-full gap-2">
+    <div className="flex flex-col lg:h-full  gap-2">
       {/* Player wrap */}
       <div
         ref={wrapRef}
@@ -268,7 +269,7 @@ export default function VideoPlayer({
       </div>
 
       {/* Now playing bar */}
-      <div className="flex items-center gap-2 shrink-0 flex-wrap">
+      <div className="flex justify-between gap-2 shrink-0 flex-cols lg:flex-row">
         <div className="shrink-0 px-1">
           <div className="text-sm font-semibold truncate text-[#e8eaf2] uppercase">
             {channel ? channel.name : "—"}
@@ -343,7 +344,7 @@ export default function VideoPlayer({
                 >
                   <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
                 </svg>
-                Fullscreen
+                Full
               </>
             )}
           </button>
@@ -360,6 +361,13 @@ export default function VideoPlayer({
             />
           </div>
         </div>
+      </div>
+      <div className="credit hidden lg:block text-center border-t">
+        Developed By{" "}
+        <Link href="https://www.wapborhan.com">
+          <span className="text-green-500">Borhan</span>{" "}
+          <span className="text-red-500">Uddin</span>
+        </Link>
       </div>
     </div>
   );

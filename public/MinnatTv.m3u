@@ -3,7 +3,8 @@
 
 # ─────────── Fifa Special───────────
 
-
+#EXTINF:-1 tvg-name="Caze TV 4K" tvg-logo="https://imglink.cc/cdn/RY7jBwPKAr.jpg" group-title="Fifa",Caze TV 4K
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8
 
 #EXTINF:-1 group-title="Fifa" tvg-logo="https://imglink.cc/cdn/RY7jBwPKAr.jpg", 1 Fifa2026
 https://bl.video.matchtv.ru/media/playlist/free_d46d0cf1712c0542ec7fd4f0808f600a_hd/17_89756005/1080/e6bef86de8a133cd7b27deb040758a00/4796141934.m3u8
@@ -92,8 +93,6 @@ https://d1211whpimeups.cloudfront.net/smil:rtb2/chunklist_b4096000_slENG.m3u8
 #EXTINF:-1 group-title="Fifa" tvg-logo="", Somoy Tv
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
 
-#EXTINF:-1 tvg-name="Caze TV 4K" tvg-logo="" group-title="FIFA 2",Caze TV 4K
-https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8
 
 #EXTINF:-1 tvg-name="Somoy TV" tvg-logo="https://abusaeeidx.github.io/bd-tv-logo/logos/somoy-tv.jpg" group-title="Bangladesh",Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8

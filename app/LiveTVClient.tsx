@@ -101,7 +101,7 @@ export default function LiveTVClient() {
 
       <div className="flex flex-1 lg:flex-row flex-col overflow-hidden">
         {/* Player: 2/3 */}
-        <div className="lg:flex-1 min-w-0 p-3 pr-2 h-full overflow-hidden">
+        <div className="lg:flex-1 min-w-0 px-3 py-2  h-full">
           <VideoPlayer
             channel={currentChannel}
             onPrev={() => setCurrentIdx((i) => Math.max(0, i - 1))}
@@ -114,7 +114,7 @@ export default function LiveTVClient() {
         </div>
 
         {/* Channel list: 1/3 */}
-        <div className="hiddens lg:block lg:w-75 w-full min-w-65 h-full  overflow-hidden border-l ">
+        <div className="hiddens lg:block lg:w-75 w-full min-w-65 h-full lg:border-l border-t border-[#2a3050]">
           <ChannelList
             channels={
               globalSearch

@@ -186,11 +186,11 @@ export default function VideoPlayer({
 
         {/* Error overlay */}
         {state === "error" && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/80 px-6 text-center">
-            <div className="w-14 h-14 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/80 px-4 text-center">
+            <div className="lg:w-14 w-10 lg:h-14 h-10 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center">
               <svg
-                width="28"
-                height="28"
+                width="25"
+                height="25"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#f08080"
@@ -212,7 +212,7 @@ export default function VideoPlayer({
             <div className="flex gap-2 mt-1">
               <button
                 onClick={handleRefresh}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1e2230] border border-[#2a3050] text-sm text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
+                className="flex items-center gap-2 px-3 py-1 rounded-lg bg-[#1e2230] border border-[#2a3050] text-sm text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
               >
                 <svg
                   width="14"
@@ -230,7 +230,7 @@ export default function VideoPlayer({
               {hasPrev && (
                 <button
                   onClick={onPrev}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1e2230] border border-[#2a3050] text-sm text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
+                  className="flex items-center gap-2 px-3 py-1 rounded-lg bg-[#1e2230] border border-[#2a3050] text-sm text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
                 >
                   ⏮ Prev
                 </button>
@@ -238,7 +238,7 @@ export default function VideoPlayer({
               {hasNext && (
                 <button
                   onClick={onNext}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1e2230] border border-[#2a3050] text-sm text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
+                  className="flex items-center gap-2 px-3 py-1 rounded-lg bg-[#1e2230] border border-[#2a3050] text-sm text-[#e8eaf2] hover:border-[#4f7ef8] transition-colors"
                 >
                   Next ⏭
                 </button>
@@ -269,13 +269,27 @@ export default function VideoPlayer({
       </div>
 
       {/* Now playing bar */}
-      <div className="flex justify-between gap-2 shrink-0 flex-cols lg:flex-row">
-        <div className="shrink-0 px-1">
-          <div className="text-sm font-semibold truncate text-[#e8eaf2] uppercase">
-            {channel ? channel.name : "—"}
+      <div className="flex justify-between gap-2 shrink-0 flex-col lg:flex-row">
+        <div className="shrink-0 px-1 flex">
+          <div className="flexs">
+            <div className="text-sm font-semibold truncate text-[#e8eaf2] uppercase">
+              {channel ? channel.name : "—"}
+            </div>
+            <div className="text-xs text-[#7a83a0] mt-0.5">
+              {channel ? channel.group : "Select a channel to begin"}
+            </div>
           </div>
-          <div className="text-xs text-[#7a83a0] mt-0.5">
-            {channel ? channel.group : "Select a channel to begin"}
+          <div className="flex items-center gap-2 ml-auto">
+            <span className="text-xs">{volIcon}</span>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.02"
+              value={volume}
+              onChange={handleVolume}
+              className="w-20"
+            />
           </div>
         </div>
 
@@ -348,18 +362,6 @@ export default function VideoPlayer({
               </>
             )}
           </button>
-          <div className="flex items-center gap-2 ml-auto">
-            <span className="text-xs">{volIcon}</span>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.02"
-              value={volume}
-              onChange={handleVolume}
-              className="w-20"
-            />
-          </div>
         </div>
       </div>
       <div className="credit hidden lg:block text-center border-t">
